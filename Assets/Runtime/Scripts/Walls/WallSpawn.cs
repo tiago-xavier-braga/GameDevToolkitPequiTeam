@@ -32,8 +32,9 @@ public class WallSpawn : MonoBehaviour
         int index = Random.Range(0, scenarioVariations.Count);
 
         Vector3 transformLastWall = new Vector3(spawnedTopPosition[^1].transform.position.x, heightWalls, 0);
-        GameObject wallTopInstance = Instantiate(scenarioVariations[index], new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
-        GameObject wallBottomInstance = Instantiate(scenarioVariations[index], new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 180, 0));
+
+        GameObject wallTopInstance = Instantiate(scenarioVariations[index], new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 180, 0));
+        GameObject wallBottomInstance = Instantiate(scenarioVariations[index], new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
 
         wallTopInstance.transform.SetParent(wallFather.transform);
         wallBottomInstance.transform.SetParent(wallFather.transform);

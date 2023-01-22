@@ -424,8 +424,8 @@ MonoBehaviour:
   wallTopPrefab: {fileID: 1006318138005158908, guid: 6b14c0ed09f5b9e4ebe9e0c7d20440e3, type: 3}
   wallBottomPrefab: {fileID: 5579112771521512143, guid: 5750199e05d4cfe42bfeb6e6f53ca83a, type: 3}
   scenarioVariations:
-  - {fileID: 7498992886389684185, guid: 71446c4843b2d964397c6c03f738cc1f, type: 3}
-  - {fileID: 8167346561290243194, guid: 78916654bb8e9bd40b22c0d2f71630af, type: 3}
-  - {fileID: 5752947894003080406, guid: 91354cb65d107c4448131de239150fb5, type: 3}
+  - {fileID: 4460437633199817642, guid: d9a33f3c428c98f43aa1d6b1ff3e22de, type: 3}
+  - {fileID: 3363100445045425242, guid: 5b75f7f5d62ca6d4588ed3ba07d1b43c, type: 3}
+  - {fileID: 5567740893753152822, guid: 529bf82330925454480519e391c356e6, type: 3}
   spawnedTopPosition: []
   spawnedBottomPosition: []
