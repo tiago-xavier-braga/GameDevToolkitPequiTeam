@@ -42,8 +42,8 @@ namespace InfinityRun.UI
         public void CloseDoors()
         {
             PlayParticles();
-            bottonDoor.transform.DOLocalMove(bottonDoorNextPos, bottonDoorTimeToOpen).SetEase(Ease.OutBack);
-            topDoor.transform.DOLocalMove(topDoorNextPos, topDoorTimeToOpen).SetEase(Ease.OutBack).OnComplete(() => gameManager.StartGame());
+            bottonDoor.transform.DOLocalMove(bottonDoorDefaultPos, bottonDoorTimeToOpen).SetEase(Ease.OutBack);
+            topDoor.transform.DOLocalMove(topDoorDefaultPos, topDoorTimeToOpen).SetEase(Ease.OutBack).OnComplete(() => gameManager.GameOver());
         }
 
         public void PlayParticles()

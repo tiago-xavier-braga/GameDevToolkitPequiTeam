@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject gameOverPanel;
     [SerializeField] CanvasGroup hudUI;
     [SerializeField] TextMeshProUGUI meterTxt;
     [SerializeField] TextMeshProUGUI gearsCollectedTxt;
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOverPanel.SetActive(true);
         Debug.Log("GameOver");
     }
 
