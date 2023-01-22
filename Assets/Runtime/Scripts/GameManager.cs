@@ -59,5 +59,10 @@ public class GameManager : MonoBehaviour
         powerUpsCollectedTxt.text = meters.ToString();
     }
 
+    public void GameOver()
+    {
+        Debug.Log("GameOver");
+    }
+
 
 }
