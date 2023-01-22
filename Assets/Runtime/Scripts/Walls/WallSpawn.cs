@@ -7,11 +7,10 @@ public class WallSpawn : MonoBehaviour
     [SerializeField] public GameObject wallFather;
     [SerializeField] public GameObject wallTopPrefab;
     [SerializeField] public GameObject wallBottomPrefab;
+    [SerializeField] public List<GameObject> scenarioVariations;
+
     public List<GameObject> spawnedTopPosition;
     public List<GameObject> spawnedBottomPosition;
-
-    public GameObject firstWallTop;
-    public GameObject firstWallBottom;
 
     private float heightWalls = 4.5f;
     private float widthWalls = 17.5f;
@@ -28,24 +27,34 @@ public class WallSpawn : MonoBehaviour
         spawnedBottomPosition.Add(firstWallBottom);
 
     }
+    public void SpawnScenario()
+    {
+        int index = Random.Range(0, scenarioVariations.Count);
+
+        Vector3 transformLastWall = new Vector3(spawnedTopPosition[^1].transform.position.x, heightWalls, 0);
+        GameObject wallTopInstance = Instantiate(scenarioVariations[index], new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
+        GameObject wallBottomInstance = Instantiate(scenarioVariations[index], new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 180, 0));
+
+        wallTopInstance.transform.SetParent(wallFather.transform);
+        wallBottomInstance.transform.SetParent(wallFather.transform);
+
+        spawnedTopPosition.Add(wallTopInstance);
+        spawnedBottomPosition.Add(wallBottomInstance);
+
+        Debug.Log("SpanScenario");
+        Debug.Log(index);
+
+    }
     private void Update()
     {
         if (spawnedTopPosition[^1].transform.position.x < 20f)
         {
-            Vector3 transformLastWall = new Vector3(spawnedTopPosition[^1].transform.position.x, heightWalls, 0);
-            GameObject wallTopInstance = Instantiate(wallTopPrefab, new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
-            GameObject wallBottomInstance = Instantiate(wallBottomPrefab, new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
-            
-            wallTopInstance.transform.SetParent(wallFather.transform);
-            wallBottomInstance.transform.SetParent(wallFather.transform);
-
-            spawnedTopPosition.Add(wallTopInstance);
-            spawnedBottomPosition.Add(wallBottomInstance);
+            SpawnScenario();
         }
         if (spawnedTopPosition.Count > 4)
         {
-            firstWallTop = spawnedTopPosition[0];
-            firstWallBottom = spawnedBottomPosition[0];
+            GameObject firstWallTop = spawnedTopPosition[0];
+            GameObject firstWallBottom = spawnedBottomPosition[0];
             GameObject.Destroy(firstWallTop);
             GameObject.Destroy(firstWallBottom);
             
