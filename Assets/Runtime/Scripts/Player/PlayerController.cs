@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     private PlayerInputActions inputActions;
+    [SerializeField] Animator playerAnim;
     private Rigidbody2D rb;
     private bool isJump = false;
     private bool isOneJump = false;
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
                 isOneJump = true;
                 isJump = true;
                 Debug.Log("first if");
+                playerAnim.SetBool("Jump", true);
+                playerAnim.SetBool("Run", false);
                 FindObjectOfType<MusicManager>().JumpingSound();
 
             }
@@ -40,6 +43,8 @@ public class PlayerController : MonoBehaviour
                 isTwoJump = true;
                 rb.velocity = new Vector2(0, jumpSpeed);
                 Debug.Log("second if");
+                playerAnim.SetBool("Jump", true);
+                playerAnim.SetBool("Run", false);
                 FindObjectOfType<MusicManager>().JumpingSound();
             }
         }
@@ -52,6 +57,8 @@ public class PlayerController : MonoBehaviour
             isOneJump = false;
             isTwoJump = false;
             Debug.Log("Is trigger");
+            playerAnim.SetBool("Jump", false);
+            playerAnim.SetBool("Run", true);
         }
     }
 }

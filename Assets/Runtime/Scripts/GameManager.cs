@@ -5,6 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
 using InfinityRun.UI;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float scoreMultiplier;
     [SerializeField] Vector3 gameOverPaneltarget;
     [SerializeField] TextMeshProUGUI finalScoreTxt;
+    [SerializeField] Animator playerAnimator;
     private float meters;
     private int gearsCoinsCount;
     private int powerUpsCount;
@@ -34,11 +36,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gameStarted)
+        if (!gameStarted)
         {
             UpdateScore();
         }
-        
+
     }
 
     public void StartGame()
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameStarted");
         gameStarted = true;
         hudUI.DOFade(1, 0.5f);
+        playerAnimator.SetBool("Run", true);
     }
 
     public void QuitGame()
@@ -56,7 +59,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore()
     {
         meters += Time.deltaTime * scoreMultiplier;
-        meterTxt.text = Mathf.Round(meters).ToString(); 
+        meterTxt.text = Mathf.Round(meters).ToString();
     }
 
     public void UpdateGears()
@@ -78,8 +81,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        finalScoreTxt.text = Mathf.Round(meters) + "m"; 
+        finalScoreTxt.text = Mathf.Round(meters) + "m";
         gameOverPanel.SetActive(true);
+        gameOverPanel.GetComponent<Image>().DOFade(1, 1f);
         Debug.Log("GameOver");
     }
 

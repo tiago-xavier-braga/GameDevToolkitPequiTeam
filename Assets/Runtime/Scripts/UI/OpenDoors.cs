@@ -32,7 +32,8 @@ namespace InfinityRun.UI
         {
             StopParticles();
             bottonDoor.transform.DOLocalMove(bottonDoorNextPos, bottonDoorTimeToOpen).SetEase(Ease.OutBack);
-            topDoor.transform.DOLocalMove(topDoorNextPos, topDoorTimeToOpen).SetEase(Ease.OutBack).OnComplete(() => gameManager.StartGame());
+            topDoor.transform.DOLocalMove(topDoorNextPos, topDoorTimeToOpen).SetEase(Ease.OutBack);
+            gameManager.StartGame();
         }
 
         public void ResetPos()
@@ -46,8 +47,8 @@ namespace InfinityRun.UI
             PlayParticles();
             gameManager.hudUI.DOFade(0, 1f);
             rotateGear.ReverseRotate();
-            bottonDoor.transform.DOLocalMove(bottonDoorDefaultPos, bottonDoorTimeToOpen-1);
-            topDoor.transform.DOLocalMove(topDoorDefaultPos, topDoorTimeToOpen-1).OnComplete(() => gameManager.GameOver());
+            bottonDoor.transform.DOLocalMove(bottonDoorDefaultPos, bottonDoorTimeToOpen - 1);
+            topDoor.transform.DOLocalMove(topDoorDefaultPos, topDoorTimeToOpen - 1).OnComplete(() => gameManager.GameOver());
         }
 
         public void PlayParticles()
@@ -66,5 +67,7 @@ namespace InfinityRun.UI
             }
         }
     }
+
 }
+
 
