@@ -12,7 +12,7 @@ public class WallController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
 
         rb.velocity = Vector2.left * speed * Time.deltaTime;

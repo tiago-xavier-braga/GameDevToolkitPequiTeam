@@ -11,7 +11,8 @@ public class WallSpawn : MonoBehaviour
     public GameObject firstWallTop;
     public GameObject firstWallBottom;
 
-    public float heightWalls = 4.5f;
+    private float heightWalls = 4.5f;
+    private float widthWalls = 17.5f;
 
     private void Start()
     {
@@ -26,8 +27,9 @@ public class WallSpawn : MonoBehaviour
         if (spawnedTopPosition[^1].transform.position.x < 20f)
         {
             Vector3 transformLastWall = new Vector3(spawnedTopPosition[^1].transform.position.x, heightWalls, 0);
-            GameObject wallTopInstance = Instantiate(wall, new Vector3(transformLastWall.x + 17.8f, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
-            GameObject wallBottomInstance = Instantiate(wall, new Vector3(transformLastWall.x + 17.8f, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
+            GameObject wallTopInstance = Instantiate(wall, new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
+            GameObject wallBottomInstance = Instantiate(wall, new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
+            
             spawnedTopPosition.Add(wallTopInstance);
             spawnedBottomPosition.Add(wallBottomInstance);
         }
@@ -37,6 +39,7 @@ public class WallSpawn : MonoBehaviour
             firstWallBottom = spawnedBottomPosition[0];
             GameObject.Destroy(firstWallTop);
             GameObject.Destroy(firstWallBottom);
+            
             spawnedTopPosition.Remove(firstWallTop);
             spawnedBottomPosition.Remove(firstWallBottom);
             Debug.Log("Destroy");
