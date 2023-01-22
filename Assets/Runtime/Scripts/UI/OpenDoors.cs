@@ -30,7 +30,7 @@ namespace InfinityRun.UI
         {
             foreach (var particle in particles)
             {
-                particle.Play();
+                particle.Stop();
             }
             bottonDoor.transform.DOLocalMove(bottonDoorNextPos, bottonDoorTimeToOpen).SetEase(Ease.OutBack);
             topDoor.transform.DOLocalMove(topDoorNextPos, topDoorTimeToOpen).SetEase(Ease.OutBack).OnComplete(() => gameManager.StartGame());

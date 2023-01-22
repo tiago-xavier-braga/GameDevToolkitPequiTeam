@@ -429,15 +429,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: ShapeModule.type
-      value: 5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489602, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: m_Name
@@ -706,6 +730,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudUI: {fileID: 1823778186}
+  meterTxt: {fileID: 114199270}
+  gearsCollectedTxt: {fileID: 2047967604}
+  powerUpsCollectedTxt: {fileID: 1042311001}
+  scoreMultiplier: 2
 --- !u!4 &431703963
 Transform:
   m_ObjectHideFlags: 0
@@ -896,15 +924,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: ShapeModule.type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489602, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: m_Name
@@ -1208,6 +1260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 848658021}
   - component: {fileID: 848658022}
+  - component: {fileID: 848658023}
   m_Layer: 5
   m_Name: Doors
   m_TagString: Untagged
@@ -1251,8 +1304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topDoor: {fileID: 879526597}
   bottonDoor: {fileID: 734254476}
-  bottonDoorNextPos: {x: 0, y: -20}
-  topDoorNextPos: {x: 0, y: 300}
+  bottonDoorNextPos: {x: 0, y: -400}
+  topDoorNextPos: {x: 0, y: 400}
   topDoorTimeToOpen: 3
   bottonDoorTimeToOpen: 3
   gameManager: {fileID: 431703962}
@@ -1263,6 +1316,21 @@ MonoBehaviour:
   - {fileID: 842782808}
   - {fileID: 1667374350}
   - {fileID: 1979171030}
+--- !u!114 &848658023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848658020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63330426daae0584db575432dfa8a640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gear: {fileID: 2004920995}
+  timeRotate: 2
+  rotateAngle: 180
 --- !u!1 &859178942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,6 +2690,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 848658023}
+        m_TargetAssemblyTypeName: InfinityRun.UI.RotateGear, Assembly-CSharp
+        m_MethodName: Rotate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1757621812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2693,15 +2773,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: ShapeModule.type
-      value: 4
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489602, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: m_Name
@@ -2933,7 +3037,7 @@ GameObject:
   - component: {fileID: 2004920998}
   - component: {fileID: 2004920997}
   m_Layer: 5
-  m_Name: Image
+  m_Name: GearImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3022,7 +3126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2034063212
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3565,19 +3669,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: ShapeModule.type
-      value: 5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837303316627489600, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837303316627489602, guid: 680c4fde3c6ca86449994feea7ec6b57, type: 3}
       propertyPath: m_Name
