@@ -7,13 +7,14 @@ public class WallSpawn : MonoBehaviour
     [SerializeField] public GameObject wallFather;
     [SerializeField] public GameObject wallTopPrefab;
     [SerializeField] public GameObject wallBottomPrefab;
-    [SerializeField] public List<GameObject> scenarioVariations;
+    [SerializeField] public List<GameObject> scenarioVariationsTop;
+    [SerializeField] public List<GameObject> scenarioVariationsBottom;
 
     public List<GameObject> spawnedTopPosition;
     public List<GameObject> spawnedBottomPosition;
 
     private float heightWalls = 4.5f;
-    private float widthWalls = 17.5f;
+    private float widthWalls = 17.8f;
 
     private void Start()
     {
@@ -29,12 +30,12 @@ public class WallSpawn : MonoBehaviour
     }
     public void SpawnScenario()
     {
-        int index = Random.Range(0, scenarioVariations.Count);
+        int index = Random.Range(0, scenarioVariationsTop.Count);
 
         Vector3 transformLastWall = new Vector3(spawnedTopPosition[^1].transform.position.x, heightWalls, 0);
 
-        GameObject wallTopInstance = Instantiate(scenarioVariations[index], new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 180, 0));
-        GameObject wallBottomInstance = Instantiate(scenarioVariations[index], new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
+        GameObject wallTopInstance = Instantiate(scenarioVariationsTop[index], new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 180, 0));
+        GameObject wallBottomInstance = Instantiate(scenarioVariationsBottom[index], new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
 
         wallTopInstance.transform.SetParent(wallFather.transform);
         wallBottomInstance.transform.SetParent(wallFather.transform);
