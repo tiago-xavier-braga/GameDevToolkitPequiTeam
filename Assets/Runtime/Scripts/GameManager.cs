@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private int gearsCoinsCount;
     private int powerUpsCount;
     public bool gameStarted = false;
+    private float totalScore;
 
 
     // Start is called before the first frame update
@@ -36,10 +37,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameStarted)
-        {
-            UpdateScore();
-        }
+       
+        UpdateScore();
+        
 
     }
 
@@ -81,7 +81,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        finalScoreTxt.text = Mathf.Round(meters) + "m";
+        totalScore = meters;
+        finalScoreTxt.text = Mathf.Round(totalScore) + "m";
         gameOverPanel.SetActive(true);
         gameOverPanel.GetComponent<Image>().DOFade(1, 1f);
         Debug.Log("GameOver");
