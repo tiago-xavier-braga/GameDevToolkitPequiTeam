@@ -423,7 +423,13 @@ MonoBehaviour:
   wallFather: {fileID: 1946169958}
   wallTopPrefab: {fileID: 1006318138005158908, guid: 6b14c0ed09f5b9e4ebe9e0c7d20440e3, type: 3}
   wallBottomPrefab: {fileID: 5579112771521512143, guid: 5750199e05d4cfe42bfeb6e6f53ca83a, type: 3}
+  scenarioVariationsTop:
+  - {fileID: 5567740893753152822, guid: ff35de39aa5de6b4ba8aa68fc2d2efab, type: 3}
+  - {fileID: 4460437633199817642, guid: 9045733652f5da449951953771bba3c9, type: 3}
+  - {fileID: 3363100445045425242, guid: 1425cca5cb25b614caca76c72ef1a3a3, type: 3}
+  scenarioVariationsBottom:
+  - {fileID: 4460437633199817642, guid: d9a33f3c428c98f43aa1d6b1ff3e22de, type: 3}
+  - {fileID: 3363100445045425242, guid: 5b75f7f5d62ca6d4588ed3ba07d1b43c, type: 3}
+  - {fileID: 5567740893753152822, guid: 529bf82330925454480519e391c356e6, type: 3}
   spawnedTopPosition: []
   spawnedBottomPosition: []
-  firstWallTop: {fileID: 0}
-  firstWallBottom: {fileID: 0}
