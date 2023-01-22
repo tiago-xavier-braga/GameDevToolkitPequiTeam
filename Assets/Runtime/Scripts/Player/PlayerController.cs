@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void onPlayerInput(InputAction.CallbackContext obj)
     {
-        if (obj.control.name == "w")
+        if (obj.control.name == "space")
         {
             if (!isJump && !isOneJump)
             {
