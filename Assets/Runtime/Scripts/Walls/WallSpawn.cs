@@ -5,7 +5,8 @@ using UnityEngine;
 public class WallSpawn : MonoBehaviour
 {
     [SerializeField] public GameObject wallFather;
-    [SerializeField] public GameObject wall;
+    [SerializeField] public GameObject wallTopPrefab;
+    [SerializeField] public GameObject wallBottomPrefab;
     public List<GameObject> spawnedTopPosition;
     public List<GameObject> spawnedBottomPosition;
 
@@ -17,8 +18,8 @@ public class WallSpawn : MonoBehaviour
 
     private void Start()
     {
-        GameObject firstWallTop = Instantiate(wall, new Vector3(0, heightWalls, 0), new Quaternion(0,0,0,0));
-        GameObject firstWallBottom = Instantiate(wall, new Vector3(0, -heightWalls, 0), new Quaternion(0, 0, 0, 0));
+        GameObject firstWallTop = Instantiate(wallTopPrefab, new Vector3(0, heightWalls, 0), new Quaternion(0,0,0,0));
+        GameObject firstWallBottom = Instantiate(wallBottomPrefab, new Vector3(0, -heightWalls, 0), new Quaternion(0, 0, 0, 0));
 
         firstWallTop.transform.SetParent(wallFather.transform);
         firstWallBottom.transform.SetParent(wallFather.transform);
@@ -32,8 +33,8 @@ public class WallSpawn : MonoBehaviour
         if (spawnedTopPosition[^1].transform.position.x < 20f)
         {
             Vector3 transformLastWall = new Vector3(spawnedTopPosition[^1].transform.position.x, heightWalls, 0);
-            GameObject wallTopInstance = Instantiate(wall, new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
-            GameObject wallBottomInstance = Instantiate(wall, new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
+            GameObject wallTopInstance = Instantiate(wallTopPrefab, new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
+            GameObject wallBottomInstance = Instantiate(wallBottomPrefab, new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
             
             wallTopInstance.transform.SetParent(wallFather.transform);
             wallBottomInstance.transform.SetParent(wallFather.transform);

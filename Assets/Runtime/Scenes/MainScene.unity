@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 456035856}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -421,7 +421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallFather: {fileID: 1946169958}
-  wall: {fileID: 877100666876283841, guid: bbbee5549bd21674cba5ca0bc6fad57b, type: 3}
+  wallTopPrefab: {fileID: 1006318138005158908, guid: 6b14c0ed09f5b9e4ebe9e0c7d20440e3, type: 3}
+  wallBottomPrefab: {fileID: 5579112771521512143, guid: 5750199e05d4cfe42bfeb6e6f53ca83a, type: 3}
   spawnedTopPosition: []
   spawnedBottomPosition: []
   firstWallTop: {fileID: 0}

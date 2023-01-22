@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerInputActions inputActions;
     private Rigidbody2D rb;
+    private bool isJump = false;
+    private bool isOneJump = false;
+    private bool isTwoJump = false;
 
     public int jumpSpeed = 10;
 
@@ -23,10 +26,30 @@ public class PlayerController : MonoBehaviour
     {
         if (obj.control.name == "w")
         {
-            rb.velocity = new Vector2(0, jumpSpeed);
-        } else
+            if (!isJump && !isOneJump)
+            {
+                rb.velocity = new Vector2(0, jumpSpeed);
+                isOneJump = true;
+                isJump = true;
+                Debug.Log("first if");
+            }
+            else if (isJump && isOneJump && !isTwoJump)
+            {
+                isTwoJump = true;
+                rb.velocity = new Vector2(0, jumpSpeed);
+                Debug.Log("second if");
+
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D trigger)
+    {
+        if (trigger.CompareTag("Ground"))
         {
-            Debug.Log("Did not press");
+            isJump = false;
+            isOneJump = false;
+            isTwoJump = false;
+            Debug.Log("Is trigger");
         }
     }
 }
