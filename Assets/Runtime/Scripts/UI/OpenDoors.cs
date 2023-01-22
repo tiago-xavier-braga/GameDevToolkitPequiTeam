@@ -18,6 +18,8 @@ namespace InfinityRun.UI
         [SerializeField] Vector2 bottonDoorDefaultPos;
         [SerializeField] Vector2 topDoorDefaultPos;
         [SerializeField] List<ParticleSystem> particles;
+        [SerializeField] RotateGear rotateGear;
+
 
 
         private void Start()
@@ -42,8 +44,10 @@ namespace InfinityRun.UI
         public void CloseDoors()
         {
             PlayParticles();
-            bottonDoor.transform.DOLocalMove(bottonDoorDefaultPos, bottonDoorTimeToOpen).SetEase(Ease.OutBack);
-            topDoor.transform.DOLocalMove(topDoorDefaultPos, topDoorTimeToOpen).SetEase(Ease.OutBack).OnComplete(() => gameManager.GameOver());
+            gameManager.hudUI.DOFade(0, 1f);
+            rotateGear.ReverseRotate();
+            bottonDoor.transform.DOLocalMove(bottonDoorDefaultPos, bottonDoorTimeToOpen-1);
+            topDoor.transform.DOLocalMove(topDoorDefaultPos, topDoorTimeToOpen-1).OnComplete(() => gameManager.GameOver());
         }
 
         public void PlayParticles()

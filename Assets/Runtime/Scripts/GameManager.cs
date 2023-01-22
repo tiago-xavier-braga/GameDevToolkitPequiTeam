@@ -4,15 +4,19 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.SceneManagement;
+using InfinityRun.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject gameOverPanel;
-    [SerializeField] CanvasGroup hudUI;
+    [SerializeField] OpenDoors openDoor;
+    public CanvasGroup hudUI;
     [SerializeField] TextMeshProUGUI meterTxt;
     [SerializeField] TextMeshProUGUI gearsCollectedTxt;
     [SerializeField] TextMeshProUGUI powerUpsCollectedTxt;
     [SerializeField] float scoreMultiplier;
+    [SerializeField] Vector3 gameOverPaneltarget;
+    [SerializeField] TextMeshProUGUI finalScoreTxt;
     private float meters;
     private int gearsCoinsCount;
     private int powerUpsCount;
@@ -30,7 +34,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateScore();
+        if(!gameStarted)
+        {
+            UpdateScore();
+        }
+        
     }
 
     public void StartGame()
@@ -70,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        finalScoreTxt.text = Mathf.Round(meters) + "m"; 
         gameOverPanel.SetActive(true);
         Debug.Log("GameOver");
     }

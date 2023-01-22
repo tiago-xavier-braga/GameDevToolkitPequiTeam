@@ -9,7 +9,7 @@ namespace InfinityRun.UI
         {
             if(collision.gameObject.CompareTag("Player"))
             {
-                FindObjectOfType<GameManager>().GameOver();
+                FindObjectOfType<OpenDoors>().CloseDoors();
             }
         }
     }
