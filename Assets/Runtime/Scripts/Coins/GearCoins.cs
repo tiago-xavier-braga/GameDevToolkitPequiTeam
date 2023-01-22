@@ -10,6 +10,7 @@ public class GearCoins : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             FindObjectOfType<GameManager>().UpdateGears();
+            FindObjectOfType<MusicManager>().CoinSound();
             this.GetComponent<SpriteRenderer>().DOFade(0, 0.2f);
             Destroy(this.gameObject, 1);
         }

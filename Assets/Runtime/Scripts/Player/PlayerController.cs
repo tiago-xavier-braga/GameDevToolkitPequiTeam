@@ -32,13 +32,15 @@ public class PlayerController : MonoBehaviour
                 isOneJump = true;
                 isJump = true;
                 Debug.Log("first if");
+                FindObjectOfType<MusicManager>().JumpingSound();
+
             }
             else if (isJump && isOneJump && !isTwoJump)
             {
                 isTwoJump = true;
                 rb.velocity = new Vector2(0, jumpSpeed);
                 Debug.Log("second if");
-
+                FindObjectOfType<MusicManager>().JumpingSound();
             }
         }
     }
