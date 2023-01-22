@@ -28,10 +28,7 @@ namespace InfinityRun.UI
 
         public void Open()
         {
-            foreach (var particle in particles)
-            {
-                particle.Stop();
-            }
+            StopParticles();
             bottonDoor.transform.DOLocalMove(bottonDoorNextPos, bottonDoorTimeToOpen).SetEase(Ease.OutBack);
             topDoor.transform.DOLocalMove(topDoorNextPos, topDoorTimeToOpen).SetEase(Ease.OutBack).OnComplete(() => gameManager.StartGame());
         }
@@ -40,6 +37,29 @@ namespace InfinityRun.UI
         {
             topDoor.transform.localPosition = topDoorDefaultPos;
             bottonDoor.transform.localPosition = bottonDoorDefaultPos;
+        }
+
+        public void CloseDoors()
+        {
+            PlayParticles();
+            bottonDoor.transform.DOLocalMove(bottonDoorNextPos, bottonDoorTimeToOpen).SetEase(Ease.OutBack);
+            topDoor.transform.DOLocalMove(topDoorNextPos, topDoorTimeToOpen).SetEase(Ease.OutBack).OnComplete(() => gameManager.StartGame());
+        }
+
+        public void PlayParticles()
+        {
+            foreach (var particle in particles)
+            {
+                particle.Play();
+            }
+        }
+
+        public void StopParticles()
+        {
+            foreach (var particle in particles)
+            {
+                particle.Stop();
+            }
         }
     }
 }
