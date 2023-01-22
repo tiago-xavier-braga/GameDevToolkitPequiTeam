@@ -225,7 +225,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8845bc4229c6eda4aa28d129625b0ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 8
+  jumpSpeed: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,8 +421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallFather: {fileID: 1946169958}
-  wallTopPrefab: {fileID: 1006318138005158908, guid: 6b14c0ed09f5b9e4ebe9e0c7d20440e3, type: 3}
-  wallBottomPrefab: {fileID: 5579112771521512143, guid: 5750199e05d4cfe42bfeb6e6f53ca83a, type: 3}
+  wallTopPrefab: {fileID: 1006318138005158908, guid: f44be7bd888434c4190eede9ae54235c, type: 3}
+  wallBottomPrefab: {fileID: 5579112771521512143, guid: f9a5db3fbf61baa43a6bf49502dbe90a, type: 3}
   scenarioVariationsTop:
   - {fileID: 5567740893753152822, guid: ff35de39aa5de6b4ba8aa68fc2d2efab, type: 3}
   - {fileID: 4460437633199817642, guid: 9045733652f5da449951953771bba3c9, type: 3}
