@@ -283,3 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 877100666876283841, guid: bbbee5549bd21674cba5ca0bc6fad57b, type: 3}
+  spawnedTopPosition: []
+  spawnedBottomPosition: []
+  firstWallTop: {fileID: 0}
+  firstWallBottom: {fileID: 0}
