@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private float meters;
     private int gearsCoinsCount;
     private int powerUpsCount;
+    public bool gameStarted = false;
 
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("GameStarted");
+        gameStarted = true;
         hudUI.DOFade(1, 0.5f);
     }
 
