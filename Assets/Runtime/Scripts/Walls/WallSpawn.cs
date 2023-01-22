@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallSpawn : MonoBehaviour
 {
+    [SerializeField] public GameObject wallFather;
     [SerializeField] public GameObject wall;
     public List<GameObject> spawnedTopPosition;
     public List<GameObject> spawnedBottomPosition;
@@ -19,8 +20,12 @@ public class WallSpawn : MonoBehaviour
         GameObject firstWallTop = Instantiate(wall, new Vector3(0, heightWalls, 0), new Quaternion(0,0,0,0));
         GameObject firstWallBottom = Instantiate(wall, new Vector3(0, -heightWalls, 0), new Quaternion(0, 0, 0, 0));
 
+        firstWallTop.transform.SetParent(wallFather.transform);
+        firstWallBottom.transform.SetParent(wallFather.transform);
+
         spawnedTopPosition.Add(firstWallTop);
         spawnedBottomPosition.Add(firstWallBottom);
+
     }
     private void Update()
     {
@@ -30,6 +35,9 @@ public class WallSpawn : MonoBehaviour
             GameObject wallTopInstance = Instantiate(wall, new Vector3(transformLastWall.x + widthWalls, transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
             GameObject wallBottomInstance = Instantiate(wall, new Vector3(transformLastWall.x + widthWalls, -transformLastWall.y, transformLastWall.z), new Quaternion(0, 0, 0, 0));
             
+            wallTopInstance.transform.SetParent(wallFather.transform);
+            wallBottomInstance.transform.SetParent(wallFather.transform);
+
             spawnedTopPosition.Add(wallTopInstance);
             spawnedBottomPosition.Add(wallBottomInstance);
         }
@@ -42,7 +50,6 @@ public class WallSpawn : MonoBehaviour
             
             spawnedTopPosition.Remove(firstWallTop);
             spawnedBottomPosition.Remove(firstWallBottom);
-            Debug.Log("Destroy");
         }
     }
 }
