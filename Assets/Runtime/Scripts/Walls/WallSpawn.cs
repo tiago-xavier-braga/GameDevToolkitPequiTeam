@@ -15,7 +15,7 @@ public class WallSpawn : MonoBehaviour
 
     private float heightWalls = 4.5f;
     private float widthWalls = 17.8f;
-
+    /*
     private void Start()
     {
         GameObject firstWallTop = Instantiate(wallTopPrefab, new Vector3(0, heightWalls, 0), new Quaternion(0,0,0,0));
@@ -27,7 +27,7 @@ public class WallSpawn : MonoBehaviour
         spawnedTopPosition.Add(firstWallTop);
         spawnedBottomPosition.Add(firstWallBottom);
 
-    }
+    }*/
     public void SpawnScenario()
     {
         int index = Random.Range(0, scenarioVariationsTop.Count);

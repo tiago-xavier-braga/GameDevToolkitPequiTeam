@@ -91,6 +91,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3081880946393609702, guid: bbbee5549bd21674cba5ca0bc6fad57b, type: 3}
+      propertyPath: speed
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 877100666876283841, guid: bbbee5549bd21674cba5ca0bc6fad57b, type: 3}
       propertyPath: m_Name
       value: FirstWallBottom
