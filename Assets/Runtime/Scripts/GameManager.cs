@@ -52,13 +52,13 @@ public class GameManager : MonoBehaviour
     public void UpdateGears()
     {
         gearsCoinsCount++;
-        gearsCollectedTxt.text = meters.ToString();
+        gearsCollectedTxt.text = gearsCoinsCount.ToString();
     }
 
     public void UpdatePowerUps()
     {
         powerUpsCount++;
-        powerUpsCollectedTxt.text = meters.ToString();
+        powerUpsCollectedTxt.text = powerUpsCount.ToString();
     }
 
     public void GameOver()
