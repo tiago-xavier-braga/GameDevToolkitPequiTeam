@@ -32,7 +32,6 @@ namespace InfinityRun.UI
             buttonImage.DOColor(Color.black, blinkFrequence);
             yield return new WaitForSeconds(blinkTime);
             Blink();
-
         }
     }
 }
